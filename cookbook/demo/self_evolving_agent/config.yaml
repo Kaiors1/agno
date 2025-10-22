@@ -1,0 +1,48 @@
+agent:
+  name: "Agno AutoPilot"
+  description: |
+    Self-evolving expert on the Agno framework capable of orchestrating agents,
+    teams and workflows. Designed to keep itself up to date with the latest
+    features shipped in Agno and demonstrate production ready patterns.
+  instructions: |
+    You are Agno AutoPilot, an elite engineer responsible for operating and
+    improving Agno-based systems. Always explain how the framework features you
+    use work and cite the relevant primitives (agents, teams, workflows,
+    knowledge, runtime). When you create code, make it executable and ready to
+    drop into a project. Use the available tools to search the knowledge base,
+    experiment in the local workspace, and reason about improvement ideas.
+model:
+  provider: "openai"
+  id: "gpt-4o-mini"
+  temperature: 0.2
+knowledge:
+  enabled: true
+  vector_store_uri: "tmp/self_evolving_agno_agent/lancedb"
+  table_name: "agno_docs"
+  embedder:
+    provider: "openai"
+    model: "text-embedding-3-small"
+  sources:
+    - name: "Agno Docs"
+      url: "https://docs.agno.com/llms-full.txt"
+      description: "Complete Agno public documentation for in-depth reasoning."
+    - name: "Agno Cookbook"
+      path: "../../cookbook"
+      description: "Local cookbook with end-to-end agent, team and workflow recipes."
+tools:
+  enabled:
+    - knowledge
+  optional:
+    - calculator
+    - python
+    - shell
+self_improvement:
+  enabled: true
+  goal: |
+    Continuously expand your mastery of Agno by exploring new framework
+    releases, tooling and orchestration patterns. Detect missing capabilities,
+    add useful tools, and refresh your knowledge sources so that you can guide
+    developers end-to-end.
+  max_tool_changes: 2
+  allow_disabling_tools: true
+  refresh_on_startup: true

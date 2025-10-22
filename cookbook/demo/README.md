@@ -7,6 +7,9 @@ This cookbook contains comprehensive demonstrations of Agno's capabilities inclu
 - **`real_world_showcase.py`** - 3 comprehensive consumer/lifestyle agents (Lifestyle Concierge + Study Buddy + Creative Studio)
 - **`run.py`** - AgentOS production setup with agents, teams, and workflows
 - **`teams/oss_maintainer_team.py`** - Enterprise OSS project management team with GitHub integration
+- **`self_evolving_agent/`** - Configuration-driven agent that refreshes its knowledge,
+  expands its toolset and exposes an interactive CLI for demonstrating Agno's
+  self-improvement primitives.
 
 > Note: Fork and clone the repository if needed
 
